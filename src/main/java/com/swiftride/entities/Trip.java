@@ -1,10 +1,10 @@
 package com.swiftride.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.swiftride.enums.TripStatus;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 @ToString
@@ -15,9 +15,11 @@ import lombok.*;
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
-    long passengerId;
-    long driverId;
-    Enum status;
+    private long id;
+    private long passengerId;
+    private long driverId;
+    @Enumerated(EnumType.STRING)
+    private TripStatus status;
+    private LocalDateTime createdAt;
 
 }

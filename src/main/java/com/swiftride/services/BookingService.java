@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+
 @Service
 public class BookingService {
 
@@ -26,6 +28,7 @@ public class BookingService {
         Trip trip = new Trip();
         trip.setPassengerId(request.getPassengerId());
         trip.setStatus(TripStatus.REQUESTED);
+        trip.setCreatedAt(LocalDateTime.now());
 
         return tripRepository.save(trip);
     }

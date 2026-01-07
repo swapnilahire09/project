@@ -22,8 +22,8 @@ public class BookingController {
     public ResponseEntity<Trip> acceptBooking(@PathVariable long tripId) {
         return ResponseEntity.ok(bookingService.acceptBooking(tripId));
     }
-    @PostMapping()
-    public ResponseEntity<Trip> cancelBooking(@RequestParam long id){
+    @PostMapping("/{tripId}/cancel")
+    public ResponseEntity<Trip> cancelBooking(@PathVariable long id){
         Trip tripDetails= bookingService.cancelBooking(id);
         return ResponseEntity.ok(tripDetails);
     }
