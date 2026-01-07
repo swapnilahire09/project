@@ -1,0 +1,13 @@
+package com.swiftride;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SwiftrideApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
