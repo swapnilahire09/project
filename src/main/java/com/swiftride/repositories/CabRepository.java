@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface CabRepository extends JpaRepository<Cab,Long> {
     List<Cab> findByIsAvailableTrue();
     Optional<Cab> findFirstByIsAvailableTrue();
+    Cab findBydriverId(long id);
 }
 

@@ -14,9 +14,17 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
+    @PostMapping
+    public ResponseEntity<Trip> createBooking(@RequestBody BookingRequest request) {
+        return ResponseEntity.ok(bookingService.createBookingRequest(request));
+    }
+    @PutMapping("/{tripId}/accept")
+    public ResponseEntity<Trip> acceptBooking(@PathVariable long tripId) {
+        return ResponseEntity.ok(bookingService.acceptBooking(tripId));
+    }
     @PostMapping()
-    public ResponseEntity<Trip> createBooking(@RequestBody BookingRequest request){
-        Trip trip= bookingService.createBooing(request);
-        return ResponseEntity.ok(trip);
+    public ResponseEntity<Trip> cancelBooking(@RequestParam long id){
+        Trip tripDetails= bookingService.cancelBooking(id);
+        return ResponseEntity.ok(tripDetails);
     }
 }

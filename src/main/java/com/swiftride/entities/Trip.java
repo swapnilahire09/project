@@ -18,6 +18,6 @@ public class Trip {
     long id;
     long passengerId;
     long driverId;
-    String status;
+    Enum status;
 
 }
